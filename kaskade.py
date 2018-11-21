@@ -5,6 +5,9 @@ from tkinter import *
 import tkinter.ttk as ttk
 
 pair = "BTC/USD"
+# Bitmex oder Bitfinex
+CryptoExchange = "Bitmex"
+
 side = ""
 amount = 0
 price_level = 0
@@ -83,12 +86,18 @@ if amount >= 0:
     ####################################
     #  Orders werden eingestellt       #
     ####################################
-
-    exchange = ccxt.bitmex({
-        'apiKey': config.bitmex_order_apikey,
-        'secret': config.bitmex_order_secret,
-        'enableRateLimit': True,
-    })
+    if CryptoExchange == "Bitmex":
+        exchange = ccxt.bitmex({
+            'apiKey': config.bitmex_order_apikey,
+            'secret': config.bitmex_order_secret,
+            'enableRateLimit': True,
+        })
+    if CryptoExchange == "Bitfinex":
+        exchange = ccxt.bitfinex({
+            'apiKey': config.bitfinex_order_apikey,
+            'secret': config.bitfinex_order_secret,
+            'enableRateLimit': True,
+        })
 
     # extra params and overrides
     params = {

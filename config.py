@@ -2,3 +2,7 @@
 
 bitmex_order_apikey = ""
 bitmex_order_secret = ""
+
+bitfinex_order_apikey = ""
+bitfinex_order_secret = ""
+
